@@ -1,0 +1,25 @@
+# Scratch / local
+scratch.sql
+*.scratch.sql
+.tmp/
+/tmp/
+
+# Data files (don't commit datasets)
+*.csv
+*.tsv
+*.parquet
+*.xlsx
+data/
+
+# Secrets / connection config
+.env
+*.env
+config.local*
+snowflake_creds*
+*.pem
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

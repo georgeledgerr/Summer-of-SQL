@@ -1,0 +1,4 @@
+# Normalise line endings (Windows-friendly checkout, LF in repo)
+* text=auto
+*.sql text
+*.md text
