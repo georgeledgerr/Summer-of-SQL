@@ -6,30 +6,29 @@ Worked solutions and notes for the **Summer of SQL** 13-week challenge series, w
 
 | Week | Focus | Status |
 |------|-------|--------|
-| [01](Week-01) | SQL Murder Mystery | ✅ Complete |
-| [02](Week-02) | Preppin' Data 2023, Weeks 1-4 | 🔨 In progress (1/4) |
-| [03](Week-03) | Data with Danny: Foodie-Fi, Sections A & B | — |
-| [04](Week-04) | Preppin' Data 2023, Weeks 5-8 | — |
-| [05](Week-05) | Lego Creator: SQL portfolio project | — |
-| [06](Week-06) | Data with Danny: Data Bank, Section A | — |
-| [07](Week-07) | Preppin' Data 2023, Weeks 9-12 | — |
-| [08](Week-08) | Data with Danny: Data Bank, Section B | — |
-| [09](Week-09) | SQL Olympics: portfolio project | — |
-| [10](Week-10) | SQL Olympics: dashboard build | — |
-| [11](Week-11) | Preppin' Data 2023, Weeks 13-16 | — |
-| [12](Week-12) | Data with Danny: Data Bank, Section C | — |
-| [13](Week-13) | SQL portfolio project + dashboard build | — |
+| [01](Week-01) | SQL Murder Mystery | Complete |
+| [02](Week-02) | Preppin' Data 2023, Weeks 1-4 | In progress (1/4) |
+| [03](Week-03) | Data with Danny: Foodie-Fi, Sections A & B | Not started |
+| [04](Week-04) | Preppin' Data 2023, Weeks 5-8 | Not started |
+| [05](Week-05) | Lego Creator: SQL portfolio project | Not started |
+| [06](Week-06) | Data with Danny: Data Bank, Section A | Not started |
+| [07](Week-07) | Preppin' Data 2023, Weeks 9-12 | Not started |
+| [08](Week-08) | Data with Danny: Data Bank, Section B | Not started |
+| [09](Week-09) | SQL Olympics: portfolio project | Not started |
+| [10](Week-10) | SQL Olympics: dashboard build | Not started |
+| [11](Week-11) | Preppin' Data 2023, Weeks 13-16 | Not started |
+| [12](Week-12) | Data with Danny: Data Bank, Section C | Not started |
+| [13](Week-13) | SQL portfolio project + dashboard build | Not started |
 
 Detailed status per challenge lives in each week's README.
 
 ## Structure
 
-Each week is a folder with a `README.md` (that week's challenges and status), a `solutions/` folder holding one `.sql` file per challenge, and a `notes.md` of takeaways.
+Each week is a folder with a `README.md` (that week's challenges and status), and a `solutions/` folder holding one `.sql` file per challenge. A `notes.md` of takeaways is added as each week is completed.
 
 ```
 Week-XX/
 ├── README.md
-├── notes.md
 └── solutions/
     ├── challenge-01-<short-name>.sql
     └── challenge-02-<short-name>.sql
