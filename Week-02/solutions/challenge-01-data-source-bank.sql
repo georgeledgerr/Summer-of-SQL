@@ -60,13 +60,12 @@ FROM pd2023_wk01;
 SELECT SPLIT_PART(transaction_code, '-', 1) AS Bank,   -- grouping dimension
        SUM(value)                           AS total_value
 FROM pd2023_wk01
-GROUP BY Bank;                                          -- one group per bank
+GROUP BY Bank;
 
 
 /* ----------------------------------------------------------------------------
    OUTPUT 2 — Total Values by Bank, Day of Week and Transaction Type  (42 rows)
-   Three grouping dimensions this time; every non-aggregated column in the
-   SELECT must also appear in the GROUP BY.
+   Three grouping dimensions this time.
    ---------------------------------------------------------------------------- */
 SELECT SPLIT_PART(transaction_code, '-', 1) AS Bank,
        CASE
@@ -82,8 +81,7 @@ GROUP BY Bank, Channel, DayOfWeek;          -- Snowflake allows grouping by alia
 
 /* ----------------------------------------------------------------------------
    OUTPUT 3 — Total Values by Bank and Customer Code  (33 rows)
-   GROUP BY 1, 2 groups by SELECT-list position (1 = Bank, 2 = customer_code) —
-   a common shorthand, equivalent to GROUP BY Bank, customer_code.
+   GROUP BY 1, 2 groups by SELECT-list position (1 = Bank, 2 = customer_code).
    ---------------------------------------------------------------------------- */
 SELECT SPLIT_PART(transaction_code, '-', 1) AS Bank,
        customer_code,
@@ -97,6 +95,4 @@ GROUP BY 1, 2;
      logic rather than reusing Step 1, keeping each output self-contained and
      runnable on its own. An alternative is to wrap Step 1 in a CTE and have
      each output SELECT from it — same results, less repetition.
-   * DAYNAME returns abbreviated names ('Mon'). For full names ('Monday'):
-     INITCAP(TRIM(TO_CHAR(<date>, 'DAY'))).
    ============================================================================ */

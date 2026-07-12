@@ -80,3 +80,15 @@ FROM pd2023_wk03_targets
         ON t.online_or_in_person = v.online_or_in_person
         AND TO_NUMBER(RIGHT(t.quarter, 1)) = v.quarter
 ;
+
+-- Returns: 8 rows (2 channels x 4 quarters). DSB beat target in 5 of 8,
+-- with one big miss: In-Person Q4 at -16,777.
+--   online_or_in_person   quarter   total_value   target   variance_to_target
+--   In-Person             1         77,576        75,000    2,576
+--   In-Person             2         70,634        70,000    634
+--   In-Person             3         74,189        70,000    4,189
+--   In-Person             4         43,223        60,000   -16,777
+--   Online                1         74,562        72,500    2,062
+--   Online                2         69,325        70,000   -675
+--   Online                3         59,072        60,000   -928
+--   Online                4         61,908        60,000    1,908

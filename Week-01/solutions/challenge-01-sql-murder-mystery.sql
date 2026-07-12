@@ -22,9 +22,9 @@
    ---------------------------------------------------------------------------- */
 SELECT *
 FROM crime_scene_report
-WHERE date = 20180115           -- Date stored as YYYYMMDD integer NOT as the date structure from the Task
-  AND type = 'murder'           -- Filter to 'Murder'
-  AND city = 'SQL City';        -- Filter to the city in the task
+WHERE date = 20180115           -- date stored as a YYYYMMDD integer, not a date type
+  AND type = 'murder'
+  AND city = 'SQL City';
 -- Description gives two witnesses:
 --   Witness 1: lives in the LAST house on Northwestern Dr.
 --   Witness 2: named Annabel, somewhere on Franklin Ave.
@@ -36,9 +36,9 @@ WHERE date = 20180115           -- Date stored as YYYYMMDD integer NOT as the da
    ---------------------------------------------------------------------------- */
 SELECT *
 FROM person
-WHERE address_street_name = 'Northwestern Dr'  -- the street from the report
-ORDER BY address_number DESC                    -- highest number = "last house"
-LIMIT 1;                                         -- keep only that one house
+WHERE address_street_name = 'Northwestern Dr'
+ORDER BY address_number DESC
+LIMIT 1;
 -- Result: Morty Schapiro (person id 14887).
 
 
@@ -48,8 +48,8 @@ LIMIT 1;                                         -- keep only that one house
    ---------------------------------------------------------------------------- */
 SELECT *
 FROM person
-WHERE name LIKE 'Annabel%'                 -- wildcard search as we have First and Last Name in Person table
-  AND address_street_name = 'Franklin Ave'; -- narrows down to the Annabel we want to search for
+WHERE name LIKE 'Annabel%'                 -- wildcard: only her first name is known
+  AND address_street_name = 'Franklin Ave';
 -- Result: Annabel Miller (person id 16371).
 
 
@@ -121,15 +121,15 @@ SELECT p.name,
 FROM drivers_license        l
 JOIN person                 p ON p.license_id = l.id   -- licence -> person
 JOIN facebook_event_checkin f ON f.person_id = p.id    -- person -> event check-ins
-WHERE l.gender    = 'female'          -- physical description from Jeremy
-  AND l.hair_color = 'red'            -- hair color
-  AND l.car_make   = 'Tesla'          -- car make
-  AND l.car_model  = 'Model S'        -- car model
-  AND l.height BETWEEN 65 AND 67      -- inclusive of 65, 66, 67
-  AND f.event_name = 'SQL Symphony Concert'  -- the specific event
-  AND f.date BETWEEN 20171201 AND 20171231   -- December 2017 (index-friendly range)
-GROUP BY p.id                          -- aggregate each person's check-ins into one group
-HAVING COUNT(*) = 3;                   -- keep only the people who attended exactly 3 times
+WHERE l.gender    = 'female'
+  AND l.hair_color = 'red'
+  AND l.car_make   = 'Tesla'
+  AND l.car_model  = 'Model S'
+  AND l.height BETWEEN 65 AND 67      -- 5'5" to 5'7", boundaries inclusive
+  AND f.event_name = 'SQL Symphony Concert'
+  AND f.date BETWEEN 20171201 AND 20171231   -- December 2017
+GROUP BY p.id
+HAVING COUNT(*) = 3;                   -- "attended 3 times" clue
 -- Result: Miranda Priestly (person id 99716).
 -- Note: COUNT(*) counts joined rows; if the data had duplicate same-day
 -- check-ins, COUNT(DISTINCT f.date) = 3 would be the safer test.

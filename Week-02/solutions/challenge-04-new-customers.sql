@@ -36,8 +36,7 @@
    ---------------------------------------------------------------------------- */
 
 -- Req 1: no wildcard union in SQL, so each monthly table is selected and
--- tagged with its month by hand. The literal column replaces the "table
--- name" a Prep wildcard union would give for free.
+-- tagged with its month by hand.
 WITH cte AS (
     SELECT *, 'January'   AS joining_month, '2023' AS joining_year FROM pd2023_wk04_january
     UNION ALL
@@ -98,6 +97,6 @@ FROM prepared
         AS p (id, joining_date, account_type, date_of_birth, ethnicity)
 
 -- Req 5: number each customer's rows earliest joining date first, keep
--- only row 1. QUALIFY is Snowflake's WHERE for window functions.
+-- only row 1.
 QUALIFY ROW_NUMBER() OVER (PARTITION BY id ORDER BY joining_date ASC) = 1
 ;
