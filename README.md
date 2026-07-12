@@ -8,7 +8,7 @@ Worked solutions and notes for the **Summer of SQL** 13-week challenge series, w
 |------|-------|--------|
 | [01](Week-01) | SQL Murder Mystery | Complete |
 | [02](Week-02) | Preppin' Data 2023, Weeks 1-4 | Complete |
-| [03](Week-03) | Data with Danny: Foodie-Fi, Sections A & B | Not started |
+| [03](Week-03) | Data with Danny: Foodie-Fi, Sections A & B | Complete |
 | [04](Week-04) | Preppin' Data 2023, Weeks 5-8 | Not started |
 | [05](Week-05) | Lego Creator: SQL portfolio project | Not started |
 | [06](Week-06) | Data with Danny: Data Bank, Section A | Not started |
